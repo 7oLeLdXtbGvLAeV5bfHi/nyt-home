@@ -8,13 +8,32 @@
   <link rel="apple-touch-icon"
         href="https://www.nytimes.com/vi-assets/static-assets/apple-touch-icon-28865b72953380a40aa43318108876cb.png">
   <style>
-    body { display:flex; align-items:center; justify-content:center;
-           height:100vh; margin:0; font-family:system-ui;
-           background:#fff; color:#333; }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; margin: 0; font-family: system-ui;
+      background: #f7f7f5; color: #333; text-align: center;
+    }
+    a {
+      display: inline-block; margin-top: 1rem;
+      padding: 0.8rem 1.5rem; background: #000;
+      color: #fff; text-decoration: none; border-radius: 8px;
+    }
   </style>
 </head>
 <body>
-  <p>Loading NYT…</p>
-  <script>window.location.replace("https://www.nytimes.com/");</script>
+  <div>
+    <h2>NYT Home</h2>
+    <p>Add this page to your Home Screen first,<br>
+       then tap the icon to launch.</p>
+    <a href="https://www.nytimes.com/">Go to NYT →</a>
+  </div>
+  <script>
+    // Only auto-redirect when launched as a web app
+    // (not when viewing in Safari to add it)
+    if (window.navigator.standalone || 
+        window.matchMedia('(display-mode: standalone)').matches) {
+      window.location.replace("https://www.nytimes.com/");
+    }
+  </script>
 </body>
 </html>
